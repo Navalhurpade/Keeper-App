@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { addNote, deleteNote } from "./NotesData";
 
 function CreateNote(props) {
   const [titleTeaxt, setTitleText] = useState("");
@@ -14,10 +13,15 @@ function CreateNote(props) {
     setNoteText(value);
   }
   function makeNote(event) {
-    addNote({
+    console.log(props);
+
+    props.AddNote({
       title: titleTeaxt,
       note: noteText
     });
+    setTitleText("");
+    setNoteText("");
+    event.preventDefault();
   }
   return (
     <div>
